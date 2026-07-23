@@ -1,4 +1,4 @@
-from task import add_task , view_tasks , search_task ,update_task
+from task import add_task , view_tasks , search_task ,update_task , delete_task
 
 def show_menu():
 
@@ -37,7 +37,7 @@ def main():
            update_task()
             
         elif choice == "5":
-            print("delete task succesfully")
+            delete_task()
             
         elif choice == "6":
             print("mark task as completed suffesfully")

@@ -92,7 +92,16 @@ def update_task():
 
 
 def delete_task():
-    pass
+    delete_id = input("enter task id for delete task: ")
+    for task in tasks:
+        if delete_id == task['id']:
+            tasks.remove(task)
+            print("\nDelete task succesfully.!")
+            return
+        
+    print("\nTask nou found")
+        
+    
 
 
 def mark_completed_task():
