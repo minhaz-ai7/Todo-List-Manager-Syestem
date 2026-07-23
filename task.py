@@ -1,5 +1,7 @@
+from database import load_tasks , save_tasks
+import csv
 
-tasks = []
+tasks = load_tasks()
 
 
 def add_task():
@@ -17,6 +19,7 @@ def add_task():
     }
 
     tasks.append(task)
+    save_tasks(tasks)
 
     print("Add task succesfully! ")
 
@@ -78,6 +81,8 @@ def update_task():
             task['priority'] = new_priority
             task['date'] = new_date
             print("\nTask update succesfully! ")
+            
+            save_tasks(tasks)
 
             return
 
@@ -90,6 +95,7 @@ def delete_task():
         if delete_id == task['id']:
             tasks.remove(task)
             print("\nDelete task succesfully.!")
+            save_tasks(tasks)
             return
 
     print("\nTask nou found")
@@ -101,6 +107,7 @@ def mark_task_completed():
         if mark_task_id == task['id']:
             task["completed"] = True
             print("\nmark completed task sccesfully")
+            save_tasks(tasks)
             return
 
     print("\nTask id not found")
@@ -139,4 +146,32 @@ def completed_task():
 
 
 def export_csv():
-    pass
+   try:
+       with open("todo_list_manager/tasks.csv" , "w" , newline= "") as file :
+        writer = csv.writer(file)
+        #header row
+        writer.writerow(["id",
+                         "Title",
+                         "Priority",
+                         "Date",
+                         "Status"])
+        
+        
+        #data row
+        for task in tasks:
+            status = "Completed" if task['completed'] else "Pending"
+            writer.writerow([
+                task['id'],
+                task['title'],
+                task["priority"],
+                task["date"],
+                status
+            ])
+            
+            
+        print("\n csv file created succesully! ")
+        return
+        
+        
+   except:
+        print("\n❌ Failed to export CSV: ")

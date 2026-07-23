@@ -5,7 +5,8 @@ from task import (add_task ,
                   delete_task ,
                   mark_task_completed,
                   pending_task,
-                  completed_task)
+                  completed_task,
+                  export_csv)
 
 def show_menu():
 
@@ -56,7 +57,7 @@ def main():
             completed_task()
             
         elif choice == "9":
-            print("\nexport csv succesfully")
+            export_csv()
             
         elif choice == "10":
             print("\nThank you for using to-do list manager system 😊")
