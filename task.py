@@ -52,7 +52,6 @@ def search_task():
             print("*" * 25)
             print("       TODO LIST")
             print("*" * 25)
-            
 
             print(f"Id         :{task['id']}")
             print(f"Title      :{task['title']}")
@@ -60,9 +59,9 @@ def search_task():
             print(f"date       :{task['date']}")
             status = "Completed" if task['completed'] else "Pending"
             print(f"status     :{status}")
-            
+
             return
-        
+
     print("\ntask not found!")
 
 
@@ -74,21 +73,15 @@ def update_task():
             new_priority = input("enter new task priority: ")
             new_date = input("enter new task date : ")
             # status = input("enter new status :")
-            
+
             task['title'] = new_title
             task['priority'] = new_priority
             task['date'] = new_date
             print("\nTask update succesfully! ")
-            
-            return
-        
-    print("Task id not found! ")
-            
-            
 
-            
-            
-            
+            return
+
+    print("Task id not found! ")
 
 
 def delete_task():
@@ -98,22 +91,51 @@ def delete_task():
             tasks.remove(task)
             print("\nDelete task succesfully.!")
             return
-        
+
     print("\nTask nou found")
-        
-    
 
 
-def mark_completed_task():
-    pass
+def mark_task_completed():
+    mark_task_id = input('enter task id for mark_completed : ')
+    for task in tasks:
+        if mark_task_id == task['id']:
+            task["completed"] = True
+            print("\nmark completed task sccesfully")
+            return
+
+    print("\nTask id not found")
 
 
 def pending_task():
-    pass
+    if not tasks:
+        print("\nTask list is empty")
+        return
+    for task in tasks:
+        if not task['completed']:
+
+            print(f"Id         :{task['id']}")
+            print(f"Title      :{task['title']}")
+            print(f"Priority   :{task['priority']}")
+            print(f"date       :{task['date']}")
+            status = "Completed" if task['completed'] else "Pending"
+            print(f"status     :{status}")
 
 
 def completed_task():
-    pass
+
+    if not tasks:
+        print("\nTask file empty")
+        return
+
+    for task in tasks:
+        if task['completed']:
+            
+                 print(f"Id         :{task['id']}")
+                 print(f"Title      :{task['title']}")
+                 print(f"Priority   :{task['priority']}")
+                 print(f"date       :{task['date']}")
+                 status = "Completed" if task['completed'] else "Pending"
+                 print(f"status     :{status}")
 
 
 def export_csv():

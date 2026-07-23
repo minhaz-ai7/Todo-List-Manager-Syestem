@@ -1,4 +1,11 @@
-from task import add_task , view_tasks , search_task ,update_task , delete_task
+from task import (add_task ,
+                  view_tasks ,
+                  search_task ,
+                  update_task ,
+                  delete_task ,
+                  mark_task_completed,
+                  pending_task,
+                  completed_task)
 
 def show_menu():
 
@@ -40,13 +47,13 @@ def main():
             delete_task()
             
         elif choice == "6":
-            print("mark task as completed suffesfully")
+            mark_task_completed()
             
         elif choice == "7":
-            print("view pending task succesfully")
+           pending_task()
             
         elif choice == "8":
-            print("view completed task succesfully")
+            completed_task()
             
         elif choice == "9":
             print("\nexport csv succesfully")
