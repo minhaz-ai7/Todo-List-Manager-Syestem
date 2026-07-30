@@ -47,8 +47,6 @@ todo_list_manager/
 
 
 ## Author
+``` MINHAZ ```
 
-* Developer : ``` MINHAZ ```
 
-
-## *Happy coding* 🎉
