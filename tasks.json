@@ -1,16 +1,1 @@
-[
-    {
-        "id": "01",
-        "title": "python",
-        "priority": "high",
-        "date": "22-09-2026",
-        "completed": true
-    },
-    {
-        "id": "02",
-        "title": "math",
-        "priority": "low",
-        "date": "23-08-2026",
-        "completed": false
-    }
-]
+[]
